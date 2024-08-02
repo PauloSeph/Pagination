@@ -15,11 +15,13 @@ namespace Pagination.Controllers
     {
 
         [HttpGet("load")] // esse middileware só será usado para carregar dados de exemplo
-        public async Task<IActionResult> LoadAsync([FromServices] DataContext context) {
+        public async Task<IActionResult> LoadAsync([FromServices] DataContext context)
+        {
 
             for (int i = 0; i < 1348; i++)
-            {   
-                var todo = new Todo() {
+            {
+                var todo = new Todo()
+                {
                     Id = i + 1,
                     Done = false,
                     CreatedAt = DateTime.Now,
@@ -34,20 +36,29 @@ namespace Pagination.Controllers
         }
 
 
-        [HttpGet("")]
+        [HttpGet("skip/{skip:int}/take/{take:int}")]
         public async Task<IActionResult> GetAsync(
             [FromServices] DataContext context,
-            [FromQuery] int skip = 0,
-            [FromQuery] int take = 25
-            ){
+            [FromRoute] int skip = 0,
+            [FromRoute] int take = 25
+            )
+        {
+
+            var total = await context.Todos.CountAsync();
 
             var todos = await context.Todos
             .AsNoTracking()
             .Skip(skip)
-            .Take(take)            
+            .Take(take)
             .ToListAsync();
 
-            return Ok(todos);
+            return Ok(
+                new { 
+                    total,
+                    skip,
+                    take,
+                    data = todos }
+              );
         }
     }
 
