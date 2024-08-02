@@ -9,7 +9,7 @@ namespace Pagination.Data
 {
     public class DataContext : DbContext
     {
-        DbSet<Todo> Todos { get; set; }
+        public DbSet<Todo> Todos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
