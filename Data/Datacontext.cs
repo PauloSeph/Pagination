@@ -7,16 +7,14 @@ using Pagination.Models;
 
 namespace Pagination.Data
 {
-    public class Datacontext : DbContext
+    public class DataContext : DbContext
     {
-        DbSet<Todo> Todos {get; set;}
-
-
+        DbSet<Todo> Todos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-        var connectionStr = "Server=localhost;Port=3306;Database=PaginationApi;Uid=root;charset=utf8;";
-           optionsBuilder.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr));
+            var connectionStr = "Server=localhost;Port=3306;Database=PaginationApi;Uid=root;charset=utf8;";
+            optionsBuilder.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr));
         }
     }
 }
