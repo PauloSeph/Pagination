@@ -24,6 +24,8 @@ namespace Pagination.Services
             // valida algo...
             PagedList<Todo> page = await _todoRepository.getTodoAsync(pageNumber, pageSize);  
 
+            Console.WriteLine(page);
+
             // faz mapeamento...      
             return page;        
         }

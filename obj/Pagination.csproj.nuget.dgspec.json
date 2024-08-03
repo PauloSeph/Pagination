@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\RepoAspNet\\Pagination\\Pagination.csproj": {}
+    "c:\\RepoAspNet\\Pagination\\Pagination.csproj": {}
   },
   "projects": {
-    "C:\\RepoAspNet\\Pagination\\Pagination.csproj": {
+    "c:\\RepoAspNet\\Pagination\\Pagination.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\RepoAspNet\\Pagination\\Pagination.csproj",
+        "projectUniqueName": "c:\\RepoAspNet\\Pagination\\Pagination.csproj",
         "projectName": "Pagination",
-        "projectPath": "C:\\RepoAspNet\\Pagination\\Pagination.csproj",
+        "projectPath": "c:\\RepoAspNet\\Pagination\\Pagination.csproj",
         "packagesPath": "C:\\Users\\Zef\\.nuget\\packages\\",
-        "outputPath": "C:\\RepoAspNet\\Pagination\\obj\\",
+        "outputPath": "c:\\RepoAspNet\\Pagination\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zef\\AppData\\Roaming\\NuGet\\NuGet.Config"

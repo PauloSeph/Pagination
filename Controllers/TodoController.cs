@@ -15,12 +15,14 @@ namespace Pagination.Controllers
     {
         public TodoService _todoService;
 
-        public TodoController(TodoService todoService) {
+        public TodoController(TodoService todoService)
+        {
             _todoService = todoService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] PaginationParams paginationParams){
+        public async Task<IActionResult> Get([FromQuery] PaginationParams paginationParams)
+        {
             var Todos = await _todoService
             .SelectTodosAsync(paginationParams.PageNumber, paginationParams.PageSize);
 

@@ -14,9 +14,10 @@ namespace Pagination.Pagination
         public int TotalCount { get; set; }
 
 
+
+
         public PagedList(IEnumerable<T> items, int currentPage, int pageSize, int count)
         {
-
             CurrentPage = currentPage;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             PageSize = pageSize;
