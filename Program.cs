@@ -1,4 +1,6 @@
 using Pagination.Data;
+using Pagination.repository;
+using Pagination.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>();
+builder.Services.AddTransient<TodoRepository>();
+builder.Services.AddTransient<TodoService>();
+
+
 
 var app = builder.Build();
 
