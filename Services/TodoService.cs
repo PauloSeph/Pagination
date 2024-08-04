@@ -19,14 +19,17 @@ namespace Pagination.Services
             _todoRepository = todoRepository;
         }
 
-        public async Task<PagedList<Todo>> SelectTodosAsync(int pageNumber, int pageSize){
+        public async Task<Paging<Todo>> GetTodosWithPagination(int pageNumber, int pageSize){
 
             // valida algo...
-            PagedList<Todo> page = await _todoRepository.getTodoAsync(pageNumber, pageSize);  
+            Paging<Todo> page = await _todoRepository.getTodoAsync(pageNumber, pageSize);  
 
             Console.WriteLine(page);
 
-            // faz mapeamento...      
+            // faz mapeamento...   
+            // no caso se precisar do mapeamento, seria necessario converter a nossa entidade para a DTO, pois
+            // o que nós queremos retornar é a DTO.
+
             return page;        
         }
     }

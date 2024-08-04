@@ -24,13 +24,18 @@ namespace Pagination.Controllers
         public async Task<IActionResult> Get([FromQuery] PaginationParams paginationParams)
         {
             var Todos = await _todoService
-            .SelectTodosAsync(paginationParams.PageNumber, paginationParams.PageSize);
+            .GetTodosWithPagination(paginationParams.PageNumber, paginationParams.PageSize);
+
 
             Response.AddPaginationHeader(
                 new PaginationHeader(Todos.CurrentPage, Todos.PageSize, Todos.TotalCount, Todos.TotalPages)
                 );
 
-            return Ok(Todos);
+            // Aqui eu poderia retornar o objeto paging que contém os dados e as informacoes da paginacao.
+            // Mas e nao poderia passar no Header como foi feito, porém ai teria que apenas retornar os items na resposta 
+            // da requisicao BODY.  
+
+            return Ok(Todos.Items);
         }
     }
 }

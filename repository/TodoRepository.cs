@@ -17,11 +17,11 @@ namespace Pagination.repository
             _context = context;
         }
 
-        public async Task<PagedList<Todo>> getTodoAsync(int pageNumber, int pageSize){
+        public async Task<Paging<Todo>> getTodoAsync(int pageNumber, int pageSize){
 
             IQueryable<Todo> query = _context.Todos.AsQueryable();
 
-            PagedList<Todo> List = await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
+            Paging<Todo> List = await ExtensionPaging.PagingTest(query, pageNumber, pageSize);
             return List;
         }
     }
